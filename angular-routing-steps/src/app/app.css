@@ -1,10 +1,18 @@
 nav a {
   margin-right: 20px;
   text-decoration: none;
-  color: black;
+  color: gray;
+  font-weight: normal;
+  transition: color 0.3s;
 }
 
-nav a.active {
-  font-weight: bold;
+nav a:hover {
+  color: darkgray;
+}
+
+nav a.active-link {
   color: blue;
+  font-weight: bold;
+  border-bottom: 2px solid blue;
+  padding-bottom: 2px;
 }
