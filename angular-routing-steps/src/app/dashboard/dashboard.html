@@ -1,2 +1,7 @@
 <h2>Dashboard (Protected)</h2>
-    <p>Only logged-in users can see this page.</p>
+    <nav>
+      <a routerLink="profile" routerLinkActive="active">Profile</a> |
+      <a routerLink="settings" routerLinkActive="active">Settings</a>
+    </nav>
+    <hr />
+    <router-outlet></router-outlet>
