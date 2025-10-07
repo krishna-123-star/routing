@@ -1,8 +1,16 @@
+<h1>Angular Routing Example</h1>
+
 <nav>
   <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
   <a routerLink="/about" routerLinkActive="active-link">About</a>
   <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
 </nav>
+
+<hr>
+
+<button (click)="goToAbout()">Go to About (Absolute)</button>
+<button (click)="goToTeam()">Go to Team (Relative)</button>
+<button (click)="goToContact()">Go to Contact (Absolute)</button>
 
 <hr>
 

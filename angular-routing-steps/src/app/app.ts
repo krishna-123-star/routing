@@ -1,15 +1,25 @@
-import { Component, OnDestroy, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { concat, debounceTime, filter, from, fromEvent, interval, map, merge, Observable, of, reduce, retry, Subscription, take, tap } from 'rxjs';
-import { ajax } from 'rxjs/ajax';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: true,
-  imports: [RouterOutlet],
-  styleUrl: './app.css'
+  imports: [RouterModule] 
 })
 export class App {
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
+  goToAbout() {
+    this.router.navigate(['/about']);
+  }
+
+  goToTeam() {
+    this.router.navigate(['team'], { relativeTo: this.route });
+  }
+
+  goToContact() {
+    this.router.navigate(['/contact']);
+  }
 }
