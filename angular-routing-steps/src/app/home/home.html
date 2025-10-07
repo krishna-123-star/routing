@@ -1,7 +1,6 @@
 <h2>Home Page</h2>
-
-<button (click)="goToAbout()">Go to About (Absolute)</button>
-
-<button (click)="goToTeam()">Go to Team (Relative)</button>
-
-<button (click)="goToContact()">Go to Contact (Absolute)</button>
+    <a routerLink="/about" fragment="team">Go to About (Team Section)</a>
+    <br><br>
+    <button (click)="goToFragment()">Go to Mission Fragment (Programmatically)</button>
+    <br><br>
+    <button (click)="goToDashboard()">Go to Dashboard (Guarded)</button>

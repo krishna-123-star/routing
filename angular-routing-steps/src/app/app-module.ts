@@ -13,9 +13,6 @@ import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    App,
-    Home,
-    About
   ],
   imports: [
     BrowserModule,
@@ -26,6 +23,6 @@ import { routes } from './app.routes';
   providers: [
     provideBrowserGlobalErrorListeners()
   ],
-  bootstrap: [App]
+  // bootstrap: [App]
 })
 export class AppModule { }

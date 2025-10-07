@@ -1,11 +1,2 @@
-nav a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: gray;
-}
-
-nav a.active-link {
-  color: blue;
-  font-weight: bold;
-  border-bottom: 2px solid blue;
-}
+nav a { margin-right: 15px; text-decoration: none; color: gray; }
+    .active { color: blue; font-weight: bold; }

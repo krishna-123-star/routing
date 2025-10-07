@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +8,20 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule]
 })
-export class About {
+export class About implements OnInit {
+fragment: string | null = null;
+constructor(private route: ActivatedRoute) {}
+
+ngOnInit() {
+    this.route.fragment.subscribe(f => {
+      this.fragment = f;
+      if (f) {
+        const element = document.getElementById(f);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
 
 }

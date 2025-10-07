@@ -8,18 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './home.css',
 })
 export class Home {
-  constructor(private router: Router, 
-    private route: ActivatedRoute) {}
-
-  goToAbout() {
-    this.router.navigate(['/about']);
+    constructor(private router: Router) {}
+  goToFragment() {
+    this.router.navigate(['/about'], { fragment: 'mission' });
   }
-
-  goToTeam() {
-    this.router.navigate(['team'], { relativeTo: this.route });
-  }
-
-  goToContact() {
-    this.router.navigate(['/contact']);
+   goToDashboard() {
+    this.router.navigate(['/dashboard']);
   }
 }
