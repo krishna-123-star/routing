@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,8 +7,12 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: true,
-  imports: [DatePipe] 
+  imports: [JsonPipe] 
 })
 export class App {
-currentDate: Date = new Date();
+myObject: any = {
+    name: 'John',
+    age: 30,
+    email: 'john@example.com'
+  };
 }
