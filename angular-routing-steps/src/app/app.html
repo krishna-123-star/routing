@@ -1,8 +1,11 @@
-<h1>Angular Child Routes + Guards Example</h1>
-    <nav>
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
-      <a routerLink="/about" routerLinkActive="active">About</a> |
-      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    </nav>
-    <hr />
-    <router-outlet></router-outlet>
+<h2>Angular Router Example with Guard & Child Routes</h2>
+
+<nav>
+  <a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
+  <a routerLink="/about" routerLinkActive="active-link">About</a> |
+  <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
+</nav>
+
+<hr>
+
+<router-outlet></router-outlet>

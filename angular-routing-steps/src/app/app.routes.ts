@@ -4,21 +4,25 @@ import { About } from './about/about';
 import { NotFound } from './not-found/not-found';
 import { Team } from './team/team';
 import { Dashboard } from './dashboard/dashboard';
-import { authGuard, childGuard } from './auth-guard';
 import { DashboardProfile } from './dashboard-profile/dashboard-profile';
 import { DashboardSettings } from './dashboard-settings/dashboard-settings';
+import { AuthGuard } from './auth-guard';
+import { Admin } from './admin/admin';
+import { Settings } from './settings/settings';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: Home },
   { path: 'about', component: About },
-{
-    path: 'dashboard',
-    component: Dashboard,
-    canActivate: [authGuard],
-    canActivateChild: [childGuard],
+  {
+    path: 'admin',
+    component: Admin,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'profile', component: DashboardProfile },
-      { path: 'settings', component: DashboardSettings }
+      { path: 'dashboard', component: Dashboard },
+      { path: 'settings', component: Settings },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
-  },  { path: '**', redirectTo: '' }
+  },
+  { path: '**', redirectTo: 'home' }
 ];

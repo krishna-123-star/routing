@@ -1,27 +1,20 @@
-import { inject } from '@angular/core';
-import { CanActivateChildFn, CanActivateFn, Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const isLoggedIn = false;
-  const router = inject(Router);
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
 
-  if (!isLoggedIn) {
-    alert('Access denied! Please log in first.');
-    router.navigate(['/']);
-    return false;
+  isLoggedIn = true; 
+
+  constructor(private router: Router) {}
+
+  canActivate(): boolean {
+    if (this.isLoggedIn) {
+      return true;
+    } else {
+      alert('Access denied! Please log in.');
+      this.router.navigate(['/home']);
+      return false;
+    }
   }
-  return true;
-};
-
-export const childGuard: CanActivateChildFn = (route, state) => {
-  const isLoggedIn = true;
-  const router = inject(Router);
-
-  if (!isLoggedIn) {
-    alert('You are not allowed to view this section!');
-    router.navigate(['/']);
-    return false;
-  }
-
-  return true;
-};
+}
