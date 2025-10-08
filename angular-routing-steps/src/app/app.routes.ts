@@ -9,6 +9,7 @@ import { DashboardSettings } from './dashboard-settings/dashboard-settings';
 import { AuthGuard } from './auth-guard';
 import { Admin } from './admin/admin';
 import { Settings } from './settings/settings';
+import { UnsavedChangesGuard } from './unsaved-changes-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,7 +21,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: Dashboard },
-      { path: 'settings', component: Settings },
+      { path: 'settings', component: Settings, canDeactivate: [UnsavedChangesGuard] },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
