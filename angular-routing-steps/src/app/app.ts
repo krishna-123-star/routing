@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, PercentPipe, SlicePipe, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, PercentPipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,9 +7,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: true,
-  imports: [SlicePipe] 
+  imports: [TitleCasePipe] 
 })
 export class App {
-myArray: any[] = ['apple', 'banana', 'orange', 'grape', 'mango'];
-  myString: string = 'This is a long string.';
+  myString: string = 'this is a sentence in lowercase.';
+
 }
