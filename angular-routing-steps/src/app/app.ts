@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, PercentPipe, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, PercentPipe, SlicePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,9 +7,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: true,
-  imports: [PercentPipe] 
+  imports: [SlicePipe] 
 })
 export class App {
-  myNumber: number = 0.23;
-
+myArray: any[] = ['apple', 'banana', 'orange', 'grape', 'mango'];
+  myString: string = 'This is a long string.';
 }
