@@ -1,3 +1,4 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -6,20 +7,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: true,
-  imports: [RouterModule] 
+  imports: [CurrencyPipe] 
 })
 export class App {
-  constructor(private router: Router, private route: ActivatedRoute) {}
+    price: number = 12345.6789;
 
-  goToAbout() {
-    this.router.navigate(['/about']);
-  }
-
-  goToTeam() {
-    this.router.navigate(['team'], { relativeTo: this.route });
-  }
-
-  goToContact() {
-    this.router.navigate(['/contact']);
-  }
 }

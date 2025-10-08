@@ -1,11 +1,5 @@
-<h2>Angular Router Example with Guard & Child Routes</h2>
-
-<nav>
-  <a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
-  <a routerLink="/about" routerLinkActive="active-link">About</a> |
-  <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
-</nav>
-
-<hr>
-
-<router-outlet></router-outlet>
+<div>
+  <h2>Using CurrencyPipe</h2>
+  <p>Price: {{ price | currency }}</p>
+  <p>Price: {{ price | currency:'EUR':'symbol-narrow':'4.2-2' }}</p>
+</div>
