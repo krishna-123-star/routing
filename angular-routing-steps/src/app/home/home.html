@@ -1,2 +1,4 @@
-<h3>Welcome to Home</h3>
-<p>This is the home page.</p>
+<h2>Home Page</h2>
+    <button *ngIf="!authService.isAuthenticated()" (click)="login()">Login</button>
+    <button *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</button>
+    <button (click)="goToAdmin()">Go to Admin</button>
