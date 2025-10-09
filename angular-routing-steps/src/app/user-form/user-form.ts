@@ -11,28 +11,23 @@ standalone: true,
   styleUrl: './user-form.css'
 })
 export class UserForm {
- user = {
-    name: '',
-    email: ''
-  };
-
+ user = { name: '', email: '' };
   message = '';
 
   constructor(private http: HttpClient) {}
 
   onSubmit() {
-    // Example endpoint (use your actual backend API)
-    const url = 'https://jsonplaceholder.typicode.com/posts';
+    const url = 'https://jsonplaceholder.typicode.com/posts'; // fake API for testing
 
     this.http.post(url, this.user).subscribe({
       next: (response) => {
         console.log('Response:', response);
-        this.message = 'User successfully submitted!';
+        this.message = 'User successfully created!';
         this.user = { name: '', email: '' }; // reset form
       },
       error: (err) => {
         console.error('Error:', err);
-        this.message = 'Something went wrong!';
+        this.message = 'Failed to create user!';
       }
     });
   }
