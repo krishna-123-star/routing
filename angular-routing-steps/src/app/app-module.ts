@@ -8,6 +8,8 @@ import { Home } from './home/home';
 import { About } from './about/about';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { FilterByLengthPipe } from './filter-by-length-pipe';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -18,7 +20,8 @@ import { routes } from './app.routes';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    CommonModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

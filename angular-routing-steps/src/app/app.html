@@ -1,4 +1,8 @@
-<h2>Using AsyncPipe with Observable</h2>
-    <p>{{ myObservable$ | async }}</p>
-    <h2>Using AsyncPipe with Promise</h2>
-    <p>{{ myPromise$ | async }}</p>
+<h2>Using Custom Pipe</h2>
+
+<p>Raw array: {{ values }}</p> 
+<ul>
+  <li *ngFor="let value of values | filterByLength:5">
+    {{ value }}
+  </li>
+</ul>
