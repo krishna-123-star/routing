@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { FilterByLengthPipe } from './filter-by-length-pipe';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { UserForm } from './user-form/user-form';
 
 
 
@@ -20,8 +22,9 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    CommonModule
+    // RouterModule.forRoot(routes),
+    CommonModule,
+    HttpClientModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
