@@ -1,15 +1,16 @@
-import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, PercentPipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, PercentPipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: true,
-  imports: [TitleCasePipe] 
+  imports: [AsyncPipe] 
 })
 export class App {
-  myString: string = 'this is a sentence in lowercase.';
-
+myObservable$: Observable<number> = of(42);
+  myPromise$: Promise<string> = Promise.resolve('Hello World!');
 }
