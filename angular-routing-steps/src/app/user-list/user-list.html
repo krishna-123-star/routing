@@ -1,0 +1,16 @@
+<p>user-list works!</p>
+<h2>User List</h2>
+
+<button (click)="fetchUsers()">Reload</button>
+
+<div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+
+<ul *ngIf="users.length > 0; else noUsers">
+  <li *ngFor="let user of users">
+    <strong>{{ user.name }}</strong> — {{ user.email }}
+  </li>
+</ul>
+
+<ng-template #noUsers>
+  <p>No users found.</p>
+</ng-template>
