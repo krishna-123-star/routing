@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { User, UserService } from '../user';
 
 @Component({
   selector: 'app-user-list',
@@ -9,26 +10,40 @@ import { FormsModule } from '@angular/forms';
 imports: [CommonModule, FormsModule, HttpClientModule],  templateUrl: './user-list.html',
   styleUrl: './user-list.css'
 })
-export class UserList {
-users: any[] = [];
-  errorMessage = '';
+export class UserList implements OnInit {
+users: User[] = [];
+  loading = true;
 
-  constructor(private http: HttpClient) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.fetchUsers();
   }
 
   fetchUsers() {
-    const url = 'https://jsonplaceholder.typicode.com/users';
-
-    this.http.get<any[]>(url).subscribe({
+    this.userService.getUsers().subscribe({
       next: (data) => {
         this.users = data;
+        this.loading = false;
       },
-      error: (error) => {
-        console.error('Error fetching users:', error);
-        this.errorMessage = 'Failed to load users. Please try again later.';
+      error: (err) => {
+        console.error(err);
+        this.loading = false;
+      }
+    });
+  }
+
+  deleteUser(id: number) {
+    if (!confirm('Are you sure you want to delete this user?')) return;
+
+    this.userService.deleteUser(id).subscribe({
+      next: () => {
+        alert('User deleted successfully!');
+        this.users = this.users.filter(user => user.id !== id); // remove from UI
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Failed to delete user!');
       }
     });
   }
