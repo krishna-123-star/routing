@@ -1,11 +1,7 @@
-<div *ngIf="loading">Loading users...</div>
+<h2>Users (with Interceptor)</h2>
 
-<div *ngIf="!loading">
-  <h2>User List</h2>
-  <ul>
-    <li *ngFor="let user of users">
-      <strong>{{ user.name }}</strong> — {{ user.email }}
-      <button (click)="deleteUser(user.id)">Delete</button>
-    </li>
-  </ul>
-</div>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} — {{ user.email }}
+  </li>
+</ul>
